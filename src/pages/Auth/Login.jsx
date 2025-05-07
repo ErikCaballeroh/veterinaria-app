@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import api from '../../api/axiosConfig'
 
-const Login = () => {
+export const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
@@ -103,5 +103,3 @@ const Login = () => {
         </div>
     )
 }
-
-export default Login
