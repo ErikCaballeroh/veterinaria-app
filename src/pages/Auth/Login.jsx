@@ -47,8 +47,8 @@ const Login = () => {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50">
-            <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow-md">
+        <div className="flex items-center justify-center mt-50">
+            <div className="max-w-md w-full space-y-8 p-8 ">
                 <div>
                     <h2 className="text-4xl">
                         Iniciar Sesion
@@ -56,7 +56,7 @@ const Login = () => {
                 </div>
                 <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
                     <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                        <label htmlFor="email" className="block text-gray-800">
                             Correo
                         </label>
                         <input
@@ -72,7 +72,7 @@ const Login = () => {
                         />
                     </div>
                     <div>
-                        <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                        <label htmlFor="password" className="block text-gray-800">
                             Contraseña
                         </label>
                         <input
@@ -93,7 +93,7 @@ const Login = () => {
                         <button
                             type="submit"
                             disabled={loading}
-                            className={`w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                            className={`w-full flex justify-center hover:cursor-pointer py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
                         >
                             {loading ? 'Iniciando sesión...' : 'Iniciar sesión'}
                         </button>
