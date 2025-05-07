@@ -1,12 +1,14 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import api from '../../api/axiosConfig'
+import { UserContext } from '../../context/UserContext';
 
 export const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
+    const { setUser } = useContext(UserContext);
     const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
@@ -15,25 +17,23 @@ export const Login = () => {
 
         try {
             const response = await api.post('/auth/login', { correo: email, contrasena: password })
-
-            // Guardar token en localStorage o contexto
-            localStorage.setItem('token', response.data.token)
-            localStorage.setItem('userRole', response.data.role) // Ejemplo: 'admin', 'vet', etc.
+            setUser(response.data.user);
 
             // Redirigir según rol
-            switch (response.data.role) {
-                case 'admin':
-                    navigate('/admin')
-                    break
-                case 'vet':
-                    navigate('/veterinarian')
-                    break
-                case 'receptionist':
-                    navigate('/receptionist')
-                    break
-                default:
-                    navigate('/user')
-            }
+            // switch (response.data.rol.nombre) {
+            //     case 'admin':
+            //         navigate('/admin')
+            //         break
+            //     case 'vet':
+            //         navigate('/veterinarian')
+            //         break
+            //     case 'receptionist':
+            //         navigate('/receptionist')
+            //         break
+            //     default:
+            //         navigate('/user')
+            // }
+            navigate('/');
 
         } catch (error) {
             Swal.fire({
