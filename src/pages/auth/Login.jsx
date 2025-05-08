@@ -47,8 +47,8 @@ export const Login = () => {
     }
 
     return (
-        <div className="flex items-center justify-center mt-50">
-            <div className="max-w-md w-full space-y-8 p-8 ">
+        <div className="flex items-center justify-center mt-10">
+            <div className="max-w-md w-full space-y-8 p-8">
                 <div>
                     <h2 className="text-4xl">
                         Iniciar Sesion

@@ -1,17 +1,19 @@
-import { NavLink } from 'react-router-dom';
-import logo from '../assets/logo.png'
+import { NavLink, useNavigate } from 'react-router-dom';
+import logo from '../assets/logo.png';
 import { UserContext } from '../context/UserContext';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import Swal from 'sweetalert2';
 import api from '../api/axiosConfig';
 
 export const Navbar = () => {
     const { user, setUser } = useContext(UserContext);
+    const navigate = useNavigate();
+    const [menuOpen, setMenuOpen] = useState(false);
 
     const handleLogout = async () => {
         Swal.fire({
             title: '¿Estás seguro?',
-            text: "¡Estas a punto de cerrar sesion!",
+            text: "¡Estas a punto de cerrar sesión!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -19,56 +21,95 @@ export const Navbar = () => {
             confirmButtonText: 'Sí, cerrar sesión'
         }).then((result) => {
             if (result.isConfirmed) {
-                api.post('/auth/logout')
+                api.post('/auth/logout');
                 setUser(null);
                 Swal.fire(
                     'Sesión cerrada',
                     'Has cerrado sesión correctamente.',
                     'success'
-                )
+                ).then(() => {
+                    navigate('/');
+                });
             }
-        })
-    }
+        });
+    };
 
     return (
-        <nav className="bg-cyan-700 shadow-md px-8 py-2">
-            <div className="flex justify-between h-16">
+        <nav className="bg-cyan-700 shadow-md px-4 py-2">
+            <div className="flex justify-between items-center h-16">
                 <div className="flex items-center">
-                    <img src={logo} alt="" className='w-8 mr-4' />
-                    <h1 className="text-4xl font-bold text-white">Veterinaria</h1>
+                    <img src={logo} alt="Logo" className="w-8 mr-4" />
+                    <h1 className="text-3xl font-bold text-white">Veterinaria</h1>
                 </div>
-                <div className="flex items-center gap-10 text-2xl text-white">
-                    <NavLink to="/" className="hover:text-gray-200 transition duration-300">
-                        Inicio
-                    </NavLink>
-                    <NavLink to="/" className="hover:text-gray-200 transition duration-300">
-                        Contacto
-                    </NavLink>
-                    <NavLink to="/" className="hover:text-gray-200 transition duration-300">
-                        Servicios
-                    </NavLink>
-                    {user ? (
-                        <div className="flex gap-4">
-                            <NavLink to="/cartillas" className="bg-white text-cyan-700 px-4 py-1.5 rounded-md hover:bg-gray-200 transition duration-300">
-                                Cartillas
-                            </NavLink>
-                            <button className="bg-white cursor-pointer text-cyan-700 px-4 py-1.5 rounded-md hover:bg-gray-200 transition duration-300" onClick={handleLogout}>
-                                Cerrar Sesión
-                            </button>
-                        </div>
 
+                {/* Botón de menú móvil */}
+                <button
+                    onClick={() => setMenuOpen(!menuOpen)}
+                    className="md:hidden w-10 h-10 flex items-center justify-center relative z-50"
+                    aria-label="Toggle menu"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        className="w-8 h-8 text-white transition-transform duration-300 ease-in-out"
+                    >
+                        <path
+                            d="M4 6h16M4 12h16M4 18h16"
+                            className={`transition-all duration-300 stroke-current stroke-2 ${menuOpen ? 'opacity-0' : 'opacity-100'
+                                }`}
+                        />
+                        <path
+                            d="M6 6l12 12M6 18L18 6"
+                            className={`transition-all duration-300 stroke-current stroke-2 ${menuOpen ? 'opacity-100' : 'opacity-0'
+                                }`}
+                        />
+                    </svg>
+                </button>
+
+
+
+
+
+
+                {/* Menú en desktop */}
+                <div className="hidden md:flex items-center gap-6 text-xl text-white">
+                    <NavLink to="/" className="hover:text-gray-200 transition">Inicio</NavLink>
+                    <NavLink to="/" className="hover:text-gray-200 transition">Contacto</NavLink>
+                    <NavLink to="/" className="hover:text-gray-200 transition">Servicios</NavLink>
+                    {user ? (
+                        <>
+                            <NavLink to="/cartillas" className="bg-white text-cyan-700 px-4 py-1.5 rounded-md hover:bg-gray-200 transition">Cartillas</NavLink>
+                            <button onClick={handleLogout} className="bg-white text-cyan-700 px-4 py-1.5 rounded-md hover:bg-gray-200 transition">Cerrar Sesión</button>
+                        </>
                     ) : (
-                        <div className="flex gap-4">
-                            <NavLink to="/login" className="bg-white text-cyan-700 px-4 py-1.5 rounded-md hover:bg-gray-200 transition duration-300">
-                                Iniciar Sesión
-                            </NavLink>
-                            <NavLink to="/register" className="bg-white text-cyan-700 px-4 py-1.5 rounded-md hover:bg-gray-200 transition duration-300">
-                                Registrarse
-                            </NavLink>
-                        </div>
+                        <>
+                            <NavLink to="/login" className="bg-white text-cyan-700 px-4 py-1.5 rounded-md hover:bg-gray-200 transition">Iniciar Sesión</NavLink>
+                            <NavLink to="/register" className="bg-white text-cyan-700 px-4 py-1.5 rounded-md hover:bg-gray-200 transition">Registrarse</NavLink>
+                        </>
+                    )}
+                </div>
+            </div>
+
+            {/* Menú móvil */}
+            <div
+                className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out ${menuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
+            >
+                <div className="flex flex-col gap-3 mt-2 text-white text-lg text-center">
+                    <NavLink to="/" className="px-2 py-1 hover:bg-cyan-600" onClick={() => setMenuOpen(false)}>Inicio</NavLink>
+                    <NavLink to="/" className="px-2 py-1 hover:bg-cyan-600" onClick={() => setMenuOpen(false)}>Contacto</NavLink>
+                    <NavLink to="/" className="px-2 py-1 hover:bg-cyan-600" onClick={() => setMenuOpen(false)}>Servicios</NavLink>
+                    {user ? (
+                        <>
+                            <NavLink to="/cartillas" className="px-4 py-1.5 bg-white text-cyan-700 rounded-md w-[80%] self-center mb-1.5" onClick={() => setMenuOpen(false)}>Cartillas</NavLink>
+                            <button onClick={() => { handleLogout(); setMenuOpen(false); }} className="px-4 py-1.5 bg-white text-cyan-700 rounded-md w-[80%] self-center mb-1.5">Cerrar Sesión</button>
+                        </>
+                    ) : (
+                        <>
+                            <NavLink to="/login" className="px-4 py-1.5 bg-white text-cyan-700 rounded-md w-[80%] self-center mb-1.5" onClick={() => setMenuOpen(false)}>Iniciar Sesión</NavLink>
+                            <NavLink to="/register" className="px-4 py-1.5 bg-white text-cyan-700 rounded-md w-[80%] self-center mb-1.5" onClick={() => setMenuOpen(false)}>Registrarse</NavLink>
+                        </>
                     )}
                 </div>
             </div>
         </nav>
-    )
-}
+    );
+};
