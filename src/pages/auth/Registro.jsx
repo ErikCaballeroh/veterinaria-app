@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import api from '../../api/axiosConfig'
+import Input from '../../components/Input';
+import Button from '../../components/Button';
 
 export const Registro = () => {
     const [nombre, setNombre] = useState('');
@@ -49,14 +51,14 @@ export const Registro = () => {
                         <label htmlFor="nombre" className="block text-gray-800">
                             Nombre
                         </label>
-                        <input
+                        <Input
                             id="nombre"
                             name="nombre"
-                            type="nombre"
+                            type="text"
                             placeholder="Ej. Juan"
                             autoComplete="nombre"
                             required
-                            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500"
+                            className="mt-1 block w-full"
                             value={nombre}
                             onChange={(e) => setNombre(e.target.value)}
                         />
@@ -65,14 +67,14 @@ export const Registro = () => {
                         <label htmlFor="apellido" className="block text-gray-800">
                             Apellido
                         </label>
-                        <input
+                        <Input
                             id="apellido"
                             name="apellido"
-                            type="apellido"
+                            type="text"
                             placeholder="Ej. Perez"
                             autoComplete="apellido"
                             required
-                            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500"
+                            className="mt-1 block w-full"
                             value={apellido}
                             onChange={(e) => setApellido(e.target.value)}
                         />
@@ -81,14 +83,14 @@ export const Registro = () => {
                         <label htmlFor="correo" className="block text-gray-800">
                             Correo
                         </label>
-                        <input
+                        <Input
                             id="correo"
                             name="correo"
                             type="email"
                             placeholder="Ej. juan.perez@gmail.com"
                             autoComplete="correo"
                             required
-                            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500"
+                            className="mt-1 block w-full"
                             value={correo}
                             onChange={(e) => setCorreo(e.target.value)}
                         />
@@ -97,14 +99,14 @@ export const Registro = () => {
                         <label htmlFor="numero" className="block text-gray-800">
                             Número de teléfono
                         </label>
-                        <input
+                        <Input
                             id="numero"
                             name="numero"
                             type="text"
                             placeholder="Ej. 1234567890"
                             autoComplete="numero"
                             required
-                            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500"
+                            className="mt-1 block w-full"
                             value={numero}
                             onChange={(e) => setNumero(e.target.value)}
                         />
@@ -113,14 +115,14 @@ export const Registro = () => {
                         <label htmlFor="password" className="block text-gray-800">
                             Contraseña
                         </label>
-                        <input
+                        <Input
                             id="password"
                             name="password"
                             type="password"
-                            placeholder="Ingrese su conraseña"
+                            placeholder="Ingrese su contraseña"
                             autoComplete="current-password"
                             required
-                            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500"
+                            className="mt-1 block w-full"
                             value={contrasena}
                             onChange={(e) => setContrasena(e.target.value)}
                         />
@@ -128,13 +130,13 @@ export const Registro = () => {
 
 
                     <div>
-                        <button
+                        <Button
                             type="submit"
                             disabled={loading}
-                            className={`w-full flex justify-center hover:cursor-pointer py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                            className={`w-full flex justify-center py-2 px-4 text-sm font-medium ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
                         >
                             {loading ? 'Registrando usuario...' : 'Registrarse'}
-                        </button>
+                        </Button>
                     </div>
                 </form>
             </div>

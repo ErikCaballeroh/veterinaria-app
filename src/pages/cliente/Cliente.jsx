@@ -20,14 +20,14 @@ export const Cliente = () => {
                     </div>
                 </div>
 
-                <NavLink to='/cartillas' className='max-w-md w-full py-5 px-10 border border-gray-300 rounded-md shadow-sm mb-10'>
+                <NavLink to='cartillas' className='max-w-md w-full py-5 px-10 border border-gray-300 rounded-md shadow-sm mb-10'>
                     <img src={petCartillas} alt="Pet Cartillas" />
                     <h2 className="text-2xl text-center">
                         Cartillas
                     </h2>
                 </NavLink>
 
-                <NavLink to='/citas' className='max-w-md w-full py-5 px-10 border border-gray-300 rounded-md shadow-sm mb-10'>
+                <NavLink to='citas' className='max-w-md w-full py-5 px-10 border border-gray-300 rounded-md shadow-sm mb-10'>
                     <img src={citas} alt="Pet Cartillas" />
                     <h2 className="text-2xl text-center">
                         Citas

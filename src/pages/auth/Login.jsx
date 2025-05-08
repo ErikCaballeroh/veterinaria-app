@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import api from '../../api/axiosConfig'
 import { UserContext } from '../../context/UserContext';
+import Input from '../../components/Input';
+import Button from '../../components/Button';
 
 export const Login = () => {
     const [email, setEmail] = useState('')
@@ -59,14 +61,14 @@ export const Login = () => {
                         <label htmlFor="email" className="block text-gray-800">
                             Correo
                         </label>
-                        <input
+                        <Input
                             id="email"
                             name="email"
                             type="email"
                             placeholder="Ingrese su correo"
                             autoComplete="email"
                             required
-                            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500"
+                            className="mt-1 block w-full"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
@@ -75,28 +77,26 @@ export const Login = () => {
                         <label htmlFor="password" className="block text-gray-800">
                             Contraseña
                         </label>
-                        <input
+                        <Input
                             id="password"
                             name="password"
                             type="password"
-                            placeholder="Ingrese su conraseña"
+                            placeholder="Ingrese su contraseña"
                             autoComplete="current-password"
                             required
-                            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500"
+                            className="mt-1 block w-full"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
-
-
                     <div>
-                        <button
+                        <Button
                             type="submit"
                             disabled={loading}
-                            className={`w-full flex justify-center hover:cursor-pointer py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                            className={`w-full flex justify-center py-2 px-4 text-sm font-medium ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
                         >
                             {loading ? 'Iniciando sesión...' : 'Iniciar sesión'}
-                        </button>
+                        </Button>
                     </div>
                 </form>
             </div>
