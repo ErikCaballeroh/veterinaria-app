@@ -77,7 +77,7 @@ export const Navbar = () => {
                     <NavLink to="/" className="hover:text-gray-200 transition">Servicios</NavLink>
                     {user ? (
                         <>
-                            <NavLink to="/cartillas" className="bg-white text-cyan-700 px-4 py-1.5 rounded-md hover:bg-gray-200 transition">Cartillas</NavLink>
+                            <NavLink to="/cliente" className="bg-white text-cyan-700 px-4 py-1.5 rounded-md hover:bg-gray-200 transition">Cuenta</NavLink>
                             <button onClick={handleLogout} className="bg-white text-cyan-700 px-4 py-1.5 rounded-md hover:bg-gray-200 transition">Cerrar Sesión</button>
                         </>
                     ) : (
@@ -99,7 +99,7 @@ export const Navbar = () => {
                     <NavLink to="/" className="px-2 py-1 hover:bg-cyan-600" onClick={() => setMenuOpen(false)}>Servicios</NavLink>
                     {user ? (
                         <>
-                            <NavLink to="/cartillas" className="px-4 py-1.5 bg-white text-cyan-700 rounded-md w-[80%] self-center mb-1.5" onClick={() => setMenuOpen(false)}>Cartillas</NavLink>
+                            <NavLink to="/cliente" className="px-4 py-1.5 bg-white text-cyan-700 rounded-md w-[80%] self-center mb-1.5" onClick={() => setMenuOpen(false)}>Cuenta</NavLink>
                             <button onClick={() => { handleLogout(); setMenuOpen(false); }} className="px-4 py-1.5 bg-white text-cyan-700 rounded-md w-[80%] self-center mb-1.5">Cerrar Sesión</button>
                         </>
                     ) : (
