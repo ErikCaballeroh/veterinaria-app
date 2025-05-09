@@ -47,6 +47,15 @@ export const DetalleCartilla = () => {
         return edad;
     };
 
+    const formatFechaHora = (fechaHora) => {
+        const fecha = new Date(fechaHora);
+        const opcionesFecha = { year: 'numeric', month: '2-digit', day: '2-digit' };
+        const opcionesHora = { hour: '2-digit', minute: '2-digit', hour12: false };
+        const fechaFormateada = fecha.toLocaleDateString('es-ES', opcionesFecha);
+        const horaFormateada = fecha.toLocaleTimeString('es-ES', opcionesHora);
+        return `${fechaFormateada} ${horaFormateada}`;
+    };
+
     const openModal = (consulta) => {
         setSelectedConsulta(consulta);
         setModalVisible(true);
@@ -62,54 +71,58 @@ export const DetalleCartilla = () => {
     }
 
     return (
-        <div className="flex items-center justify-center px-8 md:px-0 flex-col">
-            <div className="max-w-md w-full space-y-8 py-8 px-1">
-                <div>
+        <main className="flex items-center justify-center px-8 md:px-0 flex-col">
+            <section className="max-w-md w-full space-y-8 py-8 px-1">
+                <header>
                     <h2 className="text-4xl text-left mb-4">
                         {mascota.nombre}
                     </h2>
                     <h3 className='text-xl mb-2'>Datos de la mascota</h3>
-                    <p className='text-zinc-800 leading-8'>
-                        Edad: {calcularEdad(mascota.fecha_nacimiento)} años
-                        <br />
-                        Especie: {mascota.especie?.nombre}
-                        <br />
-                        Sexo: {mascota.sexo}
-                    </p>
-                </div>
-            </div>
+                </header>
+                <p className='text-zinc-800 leading-8'>
+                    Edad: {calcularEdad(mascota.fecha_nacimiento)} años
+                    <br />
+                    Especie: {mascota.especie?.nombre}
+                    <br />
+                    Sexo: {mascota.sexo}
+                </p>
+            </section>
 
-            <div className="max-w-md w-full space-y-8 mb-6 px-1">
-                <div>
+            <section className="max-w-md w-full space-y-8 mb-6 px-1">
+                <header>
                     <h2 className="text-3xl text-left">
                         Historial
                     </h2>
-                </div>
-            </div>
+                </header>
+            </section>
+
             {consultas.map((consulta) => (
-                <div key={consulta.id} className='max-w-md w-full p-5 border border-gray-300 rounded-md shadow-sm mb-10'>
-                    <h2 className='mb-3'>
-                        <span className='text-2xl mr-2'>{consulta.fecha_hora}</span>
-                        <br />
+                <article key={consulta.id} className='max-w-md w-full p-5 border border-gray-300 rounded-md shadow-sm mb-10'>
+                    <header className='mb-3'>
+                        <h2 className='text-2xl mb-2'>{formatFechaHora(consulta.fecha_hora)}</h2>
                         <span className='text-gray-600 text-xl'>
                             {consulta.servicio.nombre}
                         </span>
-                    </h2>
+                    </header>
                     <Button onClick={() => openModal(consulta)}>Ver mas</Button>
-                </div>
+                </article>
             ))}
 
             {modalVisible && selectedConsulta && (
                 <Modal onClose={closeModal}>
-                    <h2 className="text-2xl mb-4">Consulta general</h2>
+                    <header>
+                        <h2 className="text-2xl mb-4">Consulta general</h2>
+                    </header>
                     <hr className='border border-zinc-300 mb-3' />
-                    <p className="text-xl">Fecha</p>
-                    <p className="mb-4 text-zinc-800">{selectedConsulta.fecha_hora}</p>
-                    <p className="text-xl">Notas del veterinario</p>
-                    <p className='mb-4 text-zinc-800'>{selectedConsulta.nota}</p>
+                    <section>
+                        <p className="text-xl">Fecha</p>
+                        <p className="mb-4 text-zinc-800">{formatFechaHora(selectedConsulta.fecha_hora)}</p>
+                        <p className="text-xl">Notas del veterinario</p>
+                        <p className='mb-4 text-zinc-800'>{selectedConsulta.nota}</p>
+                    </section>
                     <Button onClick={closeModal}>Cerrar</Button>
                 </Modal>
             )}
-        </div>
+        </main>
     );
 };
