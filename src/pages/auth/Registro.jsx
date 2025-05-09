@@ -25,7 +25,9 @@ export const Registro = () => {
                 icon: 'success',
                 title: 'Registro exitoso',
                 text: 'Ahora puedes iniciar sesión'
-            })
+            }).then(() => {
+                navigate('/login')
+            });
 
         } catch (error) {
             Swal.fire({
