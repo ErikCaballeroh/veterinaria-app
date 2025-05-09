@@ -65,11 +65,6 @@ export const Navbar = () => {
                     </svg>
                 </button>
 
-
-
-
-
-
                 {/* Menú en desktop */}
                 <div className="hidden md:flex items-center gap-6 text-xl text-white">
                     <NavLink to="/" className="hover:text-gray-200 transition">Inicio</NavLink>

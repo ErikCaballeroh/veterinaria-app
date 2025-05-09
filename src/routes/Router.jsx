@@ -6,6 +6,7 @@ import { Navbar } from '../components/Navbar';
 import { Home } from '../pages/Home';
 import { Cliente } from '../pages/cliente/Cliente';
 import { Cartillas } from '../pages/cliente/cartillas/Cartillas';
+import { DetalleCartilla } from '../pages/cliente/cartillas/DetalleCartilla';
 
 const Router = () => {
     return (
@@ -17,6 +18,7 @@ const Router = () => {
                 <Route path="/register" element={<Registro />} />
                 <Route path="/cliente" element={<Cliente />} />
                 <Route path="/cliente/cartillas" element={<Cartillas />} />
+                <Route path="/cliente/cartillas/:id" element={<DetalleCartilla />} />
                 <Route path="/cliente/citas" element={<div>Citas</div>} />
             </Routes>
 

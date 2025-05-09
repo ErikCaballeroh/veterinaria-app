@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 import api from '../../../api/axiosConfig';
 
 export const Cartillas = () => {
     const [cartillas, setCartillas] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchCartillas = async () => {
@@ -30,8 +32,7 @@ export const Cartillas = () => {
     };
 
     const handleCartillaClick = (id) => {
-        alert(`Cartilla seleccionada: ${id}`);
-        // Aquí puedes agregar la lógica para manejar el clic en una cartilla
+        navigate(`/cliente/cartillas/${id}`);
     };
 
     return (
