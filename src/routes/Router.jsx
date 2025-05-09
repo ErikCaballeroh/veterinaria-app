@@ -7,6 +7,7 @@ import { Home } from '../pages/Home';
 import { Cliente } from '../pages/cliente/Cliente';
 import { Cartillas } from '../pages/cliente/cartillas/Cartillas';
 import { DetalleCartilla } from '../pages/cliente/cartillas/DetalleCartilla';
+import { Citas } from '../pages/cliente/Citas';
 
 const Router = () => {
     return (
@@ -19,7 +20,7 @@ const Router = () => {
                 <Route path="/cliente" element={<Cliente />} />
                 <Route path="/cliente/cartillas" element={<Cartillas />} />
                 <Route path="/cliente/cartillas/:id" element={<DetalleCartilla />} />
-                <Route path="/cliente/citas" element={<div>Citas</div>} />
+                <Route path="/cliente/citas" element={<Citas />} />
             </Routes>
 
         </BrowserRouter>
