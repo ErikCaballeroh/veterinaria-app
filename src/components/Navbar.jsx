@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.png';
 import { UserContext } from '../context/UserContext';
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
 import api from '../api/axiosConfig';
 
@@ -9,6 +9,19 @@ export const Navbar = () => {
     const { user, setUser } = useContext(UserContext);
     const navigate = useNavigate();
     const [menuOpen, setMenuOpen] = useState(false);
+
+    useEffect(() => {
+        const checkSession = async () => {
+            try {
+                const response = await api.get('/auth/session'); // Endpoint para verificar sesión
+                setUser(response.data.session);
+            } catch (error) {
+                console.error('No active session:', error);
+            }
+        };
+
+        checkSession();
+    }, []);
 
     const handleLogout = async () => {
         Swal.fire({

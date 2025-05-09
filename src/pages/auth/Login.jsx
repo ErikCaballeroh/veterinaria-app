@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import api from '../../api/axiosConfig'
@@ -12,6 +12,19 @@ export const Login = () => {
     const [loading, setLoading] = useState(false)
     const { setUser } = useContext(UserContext);
     const navigate = useNavigate()
+
+    useEffect(() => {
+        const checkSession = async () => {
+            try {
+                const response = await api.get('/auth/session'); // Endpoint para verificar sesión
+                setUser(response.data.session);
+            } catch (error) {
+                console.error('No active session:', error);
+            }
+        };
+
+        checkSession();
+    }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault()
