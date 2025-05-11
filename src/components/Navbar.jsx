@@ -15,6 +15,7 @@ export const Navbar = () => {
             try {
                 const response = await api.get('/auth/session'); // Endpoint para verificar sesión
                 setUser(response.data.session);
+                console.log(response.data.session);
             } catch (error) {
                 console.error('No active session:', error);
             }

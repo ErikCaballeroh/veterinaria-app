@@ -11,6 +11,7 @@ import { Citas } from '../pages/cliente/Citas';
 import { LayoutAdmin } from '../pages/admin/LayoutAdmin';
 import { Empleados } from '../pages/admin/Empleados';
 import { Servicios } from '../pages/admin/Servicios';
+import { ProtectedRoute } from '../components/ProtectedRoute';
 
 const Router = () => {
     return (
@@ -24,7 +25,11 @@ const Router = () => {
                 <Route path="/cliente/cartillas" element={<Cartillas />} />
                 <Route path="/cliente/cartillas/:id" element={<DetalleCartilla />} />
                 <Route path="/cliente/citas" element={<Citas />} />
-                <Route path="/admin" element={<LayoutAdmin />} >
+                <Route path="/admin" element={
+                    <ProtectedRoute roles={["Administrador"]}>
+                        <LayoutAdmin />
+                    </ProtectedRoute>
+                } >
                     <Route path="empleados" element={<Empleados />} />
                     <Route path="servicios" element={<Servicios />} />
                     <Route path="categorias" element={<h1>Categorias</h1>} />
