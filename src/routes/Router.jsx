@@ -12,6 +12,7 @@ import { LayoutAdmin } from '../pages/admin/LayoutAdmin';
 import { Empleados } from '../pages/admin/Empleados';
 import { Servicios } from '../pages/admin/Servicios';
 import { ProtectedRoute } from '../components/ProtectedRoute';
+import { Categorias } from '../pages/admin/Categorias';
 
 const Router = () => {
     return (
@@ -32,7 +33,7 @@ const Router = () => {
                 } >
                     <Route path="empleados" element={<Empleados />} />
                     <Route path="servicios" element={<Servicios />} />
-                    <Route path="categorias" element={<h1>Categorias</h1>} />
+                    <Route path="categorias" element={<Categorias />} />
                     <Route path="especies" element={<h1>Especies</h1>} />
                 </Route>
                 <Route path="*" element={<h1>404 Not Found</h1>} />
