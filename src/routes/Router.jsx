@@ -13,6 +13,7 @@ import { Empleados } from '../pages/admin/Empleados';
 import { Servicios } from '../pages/admin/Servicios';
 import { ProtectedRoute } from '../components/ProtectedRoute';
 import { Categorias } from '../pages/admin/Categorias';
+import { Especies } from '../pages/admin/Especies';
 
 const Router = () => {
     return (
@@ -34,7 +35,7 @@ const Router = () => {
                     <Route path="empleados" element={<Empleados />} />
                     <Route path="servicios" element={<Servicios />} />
                     <Route path="categorias" element={<Categorias />} />
-                    <Route path="especies" element={<h1>Especies</h1>} />
+                    <Route path="especies" element={<Especies />} />
                 </Route>
                 <Route path="*" element={<h1>404 Not Found</h1>} />
             </Routes>
