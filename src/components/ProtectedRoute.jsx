@@ -3,9 +3,9 @@ import { Navigate } from 'react-router-dom';
 import { UserContext } from '../context/UserContext';
 
 export const ProtectedRoute = ({ roles, children }) => {
-    const { user } = useContext(UserContext);
+    const { user, loading } = useContext(UserContext);
 
-    if (user === undefined) {
+    if (loading || user === undefined) {
         // Esperando respuesta de la API
         return (
             <div className="flex flex-col items-center justify-center h-64">
