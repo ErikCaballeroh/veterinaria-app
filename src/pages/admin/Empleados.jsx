@@ -142,28 +142,28 @@ export const Empleados = () => {
             <button className="bg-cyan-600 text-white rounded-sm p-2 my-8 cursor-pointer" onClick={handleAddEmpleado}>Actualizar puesto</button>
 
             <div className="w-full border border-gray-300 rounded-xl overflow-hidden">
-                <table className="w-full text-center">
+                <table className="w-full text-left">
                     <thead>
                         <tr className="bg-gray-200">
-                            <th className="p-2">No. Empleado</th>
-                            <th className="p-2">Puesto</th>
-                            <th className="p-2">Nombre</th>
-                            <th className="p-2">Apellido</th>
-                            <th className="p-2">Correo</th>
-                            <th className="p-2">Numero</th>
-                            <th className="p-2 w-60">Acciones</th>
+                            <th className="py-2 px-4">No. Empleado</th>
+                            <th className="py-2 px-4">Puesto</th>
+                            <th className="py-2 px-4">Nombre</th>
+                            <th className="py-2 px-4">Apellido</th>
+                            <th className="py-2 px-4">Correo</th>
+                            <th className="py-2 px-4">Numero</th>
+                            <th className="py-2 px-4 w-60">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         {empleados.map((empleado) => (
                             <tr key={empleado.id} className="border-t border-gray-300">
-                                <td className="p-2">{empleado.id}</td>
-                                <td className="p-2">{empleado.rol.nombre}</td>
-                                <td className="p-2">{empleado.nombre}</td>
-                                <td className="p-2">{empleado.apellido}</td>
-                                <td className="p-2">{empleado.correo}</td>
-                                <td className="p-2">{empleado.numero}</td>
-                                <td className="p-2 flex gap-2">
+                                <td className="py-2 px-4">{empleado.id}</td>
+                                <td className="py-2 px-4">{empleado.rol.nombre}</td>
+                                <td className="py-2 px-4">{empleado.nombre}</td>
+                                <td className="py-2 px-4">{empleado.apellido}</td>
+                                <td className="py-2 px-4">{empleado.correo}</td>
+                                <td className="py-2 px-4">{empleado.numero}</td>
+                                <td className="py-2 px-4 flex gap-2">
                                     <button className="bg-cyan-600 text-white rounded-full px-6 py-1.5 cursor-pointer" onClick={() => handleEditEmpleado(empleado)}>Editar</button>
                                     <button className="bg-red-600 text-white rounded-full px-6 py-1.5 cursor-pointer" onClick={() => handleDeleteEmpleado(empleado.id)}>Eliminar</button>
                                 </td>
