@@ -84,6 +84,9 @@ export const Navbar = () => {
                     <NavLink to="/" className="hover:text-gray-200 transition">Inicio</NavLink>
                     <NavLink to="/" className="hover:text-gray-200 transition">Contacto</NavLink>
                     <NavLink to="/" className="hover:text-gray-200 transition">Servicios</NavLink>
+                    {user && user.rol?.nombre === "Administrador" && (
+                        <NavLink to="/admin" className="bg-yellow-400 text-cyan-900 px-4 py-1.5 rounded-md hover:bg-yellow-300 transition font-semibold">Admin</NavLink>
+                    )}
                     {user ? (
                         <>
                             <NavLink to="/cliente" className="bg-white text-cyan-700 px-4 py-1.5 rounded-md hover:bg-gray-200 transition">Cuenta</NavLink>
@@ -106,6 +109,9 @@ export const Navbar = () => {
                     <NavLink to="/" className="px-2 py-1 hover:bg-cyan-600" onClick={() => setMenuOpen(false)}>Inicio</NavLink>
                     <NavLink to="/" className="px-2 py-1 hover:bg-cyan-600" onClick={() => setMenuOpen(false)}>Contacto</NavLink>
                     <NavLink to="/" className="px-2 py-1 hover:bg-cyan-600" onClick={() => setMenuOpen(false)}>Servicios</NavLink>
+                    {user && user.rol?.nombre === "Administrador" && (
+                        <NavLink to="/admin" className="px-4 py-1.5 bg-yellow-400 text-cyan-900 rounded-md w-[80%] self-center mb-1.5 font-semibold" onClick={() => setMenuOpen(false)}>Admin</NavLink>
+                    )}
                     {user ? (
                         <>
                             <NavLink to="/cliente" className="px-4 py-1.5 bg-white text-cyan-700 rounded-md w-[80%] self-center mb-1.5" onClick={() => setMenuOpen(false)}>Cuenta</NavLink>
