@@ -19,6 +19,7 @@ import { Registro } from '../pages/auth/Registro';
 import { Servicios } from '../pages/admin/Servicios';
 import NotFound from '../pages/NotFound';
 import { Mascotas } from '../pages/veterinario/Mascotas';
+import { Historial } from '../pages/veterinario/Historial';
 
 const Router = () => {
     return (
@@ -50,7 +51,7 @@ const Router = () => {
                     <Route path="iniciar-consulta" element={<Consulta />} />
                     <Route path="clientes" element={<Clientes />} />
                     <Route path="mascotas" element={<Mascotas />} />
-                    <Route path="historial" element={<div>Historial</div>} />
+                    <Route path="historial" element={<Historial />} />
                 </Route>
                 <Route path="*" element={<NotFound />} />
             </Routes>
