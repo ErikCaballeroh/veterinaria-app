@@ -22,6 +22,7 @@ import { Mascotas } from '../pages/veterinario/Mascotas';
 import { Historial } from '../pages/veterinario/Historial';
 import { ServiciosUsuario } from '../pages/ServiciosUsuario';
 import { LayoutRecepcionista } from '../pages/recepcionista/LayoutRecepcionista';
+import { Agendar } from '../pages/recepcionista/Agendar';
 
 const Router = () => {
     return (
@@ -61,7 +62,7 @@ const Router = () => {
                         <LayoutRecepcionista />
                     </ProtectedRoute>
                 } >
-                    <Route path="agendar" element={<div>Agendar Cita</div>} />
+                    <Route path="agendar" element={<Agendar />} />
                     <Route path="historial" element={<div>Historial de citas</div>} />
                 </Route>
                 <Route path="*" element={<NotFound />} />
