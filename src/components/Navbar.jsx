@@ -82,7 +82,7 @@ export const Navbar = () => {
                 {/* Menú en desktop */}
                 <div className="hidden md:flex items-center gap-6 text-xl text-white">
                     <NavLink to="/" className="hover:text-gray-200 transition">Inicio</NavLink>
-                    <NavLink to="/" className="hover:text-gray-200 transition">Contacto</NavLink>
+                    <NavLink to="/contacto" className="hover:text-gray-200 transition">Contacto</NavLink>
                     <NavLink to="/servicios" className="hover:text-gray-200 transition">Servicios</NavLink>
                     {user && user.rol?.nombre === "Administrador" && (
                         <NavLink to="/admin" className="bg-yellow-400 text-cyan-900 px-4 py-1.5 rounded-md hover:bg-yellow-300 transition font-semibold">Admin</NavLink>
@@ -113,8 +113,8 @@ export const Navbar = () => {
             >
                 <div className="flex flex-col gap-3 mt-2 text-white text-lg text-center">
                     <NavLink to="/" className="px-2 py-1 hover:bg-cyan-600" onClick={() => setMenuOpen(false)}>Inicio</NavLink>
-                    <NavLink to="/" className="px-2 py-1 hover:bg-cyan-600" onClick={() => setMenuOpen(false)}>Contacto</NavLink>
-                    <NavLink to="/" className="px-2 py-1 hover:bg-cyan-600" onClick={() => setMenuOpen(false)}>Servicios</NavLink>
+                    <NavLink to="/contacto" className="px-2 py-1 hover:bg-cyan-600" onClick={() => setMenuOpen(false)}>Contacto</NavLink>
+                    <NavLink to="/servicios" className="px-2 py-1 hover:bg-cyan-600" onClick={() => setMenuOpen(false)}>Servicios</NavLink>
                     {user && user.rol?.nombre === "Administrador" && (
                         <NavLink to="/admin" className="px-4 py-1.5 bg-yellow-400 text-cyan-900 rounded-md w-[80%] self-center mb-1.5 font-semibold" onClick={() => setMenuOpen(false)}>Admin</NavLink>
                     )}

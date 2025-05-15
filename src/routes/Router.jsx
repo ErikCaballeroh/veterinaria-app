@@ -24,6 +24,7 @@ import { ServiciosUsuario } from '../pages/ServiciosUsuario';
 import { LayoutRecepcionista } from '../pages/recepcionista/LayoutRecepcionista';
 import { Agendar } from '../pages/recepcionista/Agendar';
 import { HistorialCitas } from '../pages/recepcionista/HistorialCitas';
+import { Contacto } from '../pages/Contacto';
 
 const Router = () => {
     return (
@@ -66,6 +67,7 @@ const Router = () => {
                     <Route path="agendar" element={<Agendar />} />
                     <Route path="historial" element={<HistorialCitas />} />
                 </Route>
+                <Route path="/contacto" element={<Contacto />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </BrowserRouter>
