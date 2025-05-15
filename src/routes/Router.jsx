@@ -23,6 +23,7 @@ import { Historial } from '../pages/veterinario/Historial';
 import { ServiciosUsuario } from '../pages/ServiciosUsuario';
 import { LayoutRecepcionista } from '../pages/recepcionista/LayoutRecepcionista';
 import { Agendar } from '../pages/recepcionista/Agendar';
+import { HistorialCitas } from '../pages/recepcionista/HistorialCitas';
 
 const Router = () => {
     return (
@@ -63,7 +64,7 @@ const Router = () => {
                     </ProtectedRoute>
                 } >
                     <Route path="agendar" element={<Agendar />} />
-                    <Route path="historial" element={<div>Historial de citas</div>} />
+                    <Route path="historial" element={<HistorialCitas />} />
                 </Route>
                 <Route path="*" element={<NotFound />} />
             </Routes>
