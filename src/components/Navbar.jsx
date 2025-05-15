@@ -83,7 +83,7 @@ export const Navbar = () => {
                 <div className="hidden md:flex items-center gap-6 text-xl text-white">
                     <NavLink to="/" className="hover:text-gray-200 transition">Inicio</NavLink>
                     <NavLink to="/" className="hover:text-gray-200 transition">Contacto</NavLink>
-                    <NavLink to="/" className="hover:text-gray-200 transition">Servicios</NavLink>
+                    <NavLink to="/servicios" className="hover:text-gray-200 transition">Servicios</NavLink>
                     {user && user.rol?.nombre === "Administrador" && (
                         <NavLink to="/admin" className=" transition font-semibold">Admin</NavLink>
                     )}

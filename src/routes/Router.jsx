@@ -20,6 +20,7 @@ import { Servicios } from '../pages/admin/Servicios';
 import NotFound from '../pages/NotFound';
 import { Mascotas } from '../pages/veterinario/Mascotas';
 import { Historial } from '../pages/veterinario/Historial';
+import { ServiciosUsuario } from '../pages/ServiciosUsuario';
 
 const Router = () => {
     return (
@@ -27,6 +28,7 @@ const Router = () => {
             <Navbar />
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/servicios" element={<ServiciosUsuario />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Registro />} />
                 <Route path="/cliente" element={<Cliente />} />
