@@ -85,10 +85,13 @@ export const Navbar = () => {
                     <NavLink to="/" className="hover:text-gray-200 transition">Contacto</NavLink>
                     <NavLink to="/servicios" className="hover:text-gray-200 transition">Servicios</NavLink>
                     {user && user.rol?.nombre === "Administrador" && (
-                        <NavLink to="/admin" className=" transition font-semibold">Admin</NavLink>
+                        <NavLink to="/admin" className="bg-yellow-400 text-cyan-900 px-4 py-1.5 rounded-md hover:bg-yellow-300 transition font-semibold">Admin</NavLink>
                     )}
                     {user && user.rol?.nombre === "Veterinario" && (
                         <NavLink to="/veterinario" className="bg-white text-cyan-700 px-4 py-1.5 rounded-md hover:bg-gray-200 transition">Veterinario</NavLink>
+                    )}
+                    {user && user.rol?.nombre === "Recepcionista" && (
+                        <NavLink to="/recepcionista" className="bg-white text-cyan-700 px-4 py-1.5 rounded-md hover:bg-gray-200 transition">Recepcionista</NavLink>
                     )}
                     {user ? (
                         <>

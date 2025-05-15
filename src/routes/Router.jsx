@@ -21,6 +21,7 @@ import NotFound from '../pages/NotFound';
 import { Mascotas } from '../pages/veterinario/Mascotas';
 import { Historial } from '../pages/veterinario/Historial';
 import { ServiciosUsuario } from '../pages/ServiciosUsuario';
+import { LayoutRecepcionista } from '../pages/recepcionista/LayoutRecepcionista';
 
 const Router = () => {
     return (
@@ -54,6 +55,14 @@ const Router = () => {
                     <Route path="clientes" element={<Clientes />} />
                     <Route path="mascotas" element={<Mascotas />} />
                     <Route path="historial" element={<Historial />} />
+                </Route>
+                <Route path="/recepcionista" element={
+                    <ProtectedRoute roles={["Recepcionista"]}>
+                        <LayoutRecepcionista />
+                    </ProtectedRoute>
+                } >
+                    <Route path="agendar" element={<div>Agendar Cita</div>} />
+                    <Route path="historial" element={<div>Historial de citas</div>} />
                 </Route>
                 <Route path="*" element={<NotFound />} />
             </Routes>
