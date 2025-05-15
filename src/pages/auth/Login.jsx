@@ -34,22 +34,7 @@ export const Login = () => {
             const response = await api.post('/auth/login', { correo: email, contrasena: password })
             setUser(response.data.user);
 
-            // Redirigir según rol
-            // switch (response.data.rol.nombre) {
-            //     case 'admin':
-            //         navigate('/admin')
-            //         break
-            //     case 'vet':
-            //         navigate('/veterinarian')
-            //         break
-            //     case 'receptionist':
-            //         navigate('/receptionist')
-            //         break
-            //     default:
-            //         navigate('/user')
-            // }
             navigate('/');
-
         } catch (error) {
             Swal.fire({
                 icon: 'error',

@@ -15,6 +15,8 @@ import { ProtectedRoute } from '../components/ProtectedRoute';
 import { Categorias } from '../pages/admin/Categorias';
 import { Especies } from '../pages/admin/Especies';
 import NotFound from '../pages/NotFound';
+import { LayoutVeterinario } from '../pages/veterinario/LayoutVeterinario';
+import { Consulta } from '../pages/veterinario/Consulta';
 
 const Router = () => {
     return (
@@ -37,6 +39,16 @@ const Router = () => {
                     <Route path="servicios" element={<Servicios />} />
                     <Route path="categorias" element={<Categorias />} />
                     <Route path="especies" element={<Especies />} />
+                </Route>
+                <Route path="/veterinario" element={
+                    <ProtectedRoute roles={["Veterinario"]}>
+                        <LayoutVeterinario />
+                    </ProtectedRoute>
+                } >
+                    <Route path="iniciar-consulta" element={<Consulta />} />
+                    <Route path="clientes" element={<div>Clientes</div>} />
+                    <Route path="mascotas" element={<div>Mascotas</div>} />
+                    <Route path="historial" element={<div>Historial</div>} />
                 </Route>
                 <Route path="*" element={<NotFound />} />
             </Routes>
