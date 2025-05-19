@@ -8,6 +8,7 @@ export const LayoutAdmin = () => {
                 <hr className="border border-zinc-300 my-3" />
                 <ul className="text-zinc-800 leading-10">
                     <li><NavLink to="/admin/empleados">Empleados</NavLink></li>
+                    <li><NavLink to="/admin/clientes">Clientes</NavLink></li>
                     <li><NavLink to="/admin/servicios">Servicios</NavLink></li>
                     <li><NavLink to="/admin/categorias">Categorias</NavLink></li>
                     <li><NavLink to="/admin/especies">Especies</NavLink></li>
