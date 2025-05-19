@@ -46,6 +46,7 @@ const Router = () => {
                 } >
                     <Route path="empleados" element={<Empleados />} />
                     <Route path="clientes" element={<Clientes />} />
+                    <Route path="mascotas" element={<Mascotas />} />
                     <Route path="servicios" element={<Servicios />} />
                     <Route path="categorias" element={<Categorias />} />
                     <Route path="especies" element={<Especies />} />
