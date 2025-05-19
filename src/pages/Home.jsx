@@ -16,12 +16,6 @@ export const Home = () => {
                         Atención médica profesional y cariño para tus mascotas. Nuestro equipo está listo para cuidar
                         a tu compañero peludo como se merece.
                     </p>
-                    <a
-                        href="#contacto"
-                        className="inline-block bg-cyan-800 text-white px-8 py-4 rounded-full text-xl hover:bg-cyan-900 transition"
-                    >
-                        Agendar cita
-                    </a>
                 </div>
             </main>
 

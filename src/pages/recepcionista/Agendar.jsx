@@ -181,7 +181,7 @@ export const Agendar = () => {
 
                         <div className="mb-3">
                             <label htmlFor="servicioId" className="block text-gray-800">
-                                Servicio (opcional)
+                                Servicio
                             </label>
                             <select
                                 id="servicioId"
