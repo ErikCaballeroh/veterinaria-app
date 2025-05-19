@@ -45,6 +45,7 @@ const Router = () => {
                     </ProtectedRoute>
                 } >
                     <Route path="empleados" element={<Empleados />} />
+                    <Route path="clientes" element={<Clientes />} />
                     <Route path="servicios" element={<Servicios />} />
                     <Route path="categorias" element={<Categorias />} />
                     <Route path="especies" element={<Especies />} />
